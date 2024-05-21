@@ -1,4 +1,4 @@
-name: CI
+name: Deploy site to GitHub Pages
 
 # 触发器、分支
 on:
@@ -7,7 +7,7 @@ on:
       - master  # default branch
 jobs:
   # 子任务
-  pages:
+  build-and-deploy:
     runs-on: ubuntu-latest # 定运行所需要的虚拟机环境
     permissions:
       contents: write
@@ -47,18 +47,10 @@ jobs:
         run: npm run clean
       - name: Build
         run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY  }}
-          user_name: jinxuchen2020
-          user_email: jinxuchen2020@icloud.com
-          commit_message: ${{ github.event.head_commit.message }}
-          full_commit_message: ${{ github.event.head_commit.message }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          allow_empty_commit: true # 允许空提交
-      # Use the output from the `deploy` step(use for test action)
-      - name: Get the output
-        run: |
-          echo "${{ steps.deploy.outputs.notify }}"
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
