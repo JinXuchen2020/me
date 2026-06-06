@@ -85,6 +85,48 @@ permalink: /
   background: rgba(255,255,255,0.1);
 }
 
+.about-section {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px 0;
+}
+
+.about-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: white;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.about-text p {
+  color: #666;
+  line-height: 1.8;
+}
+
 .highlights {
   margin: 50px 0;
 }
@@ -155,6 +197,146 @@ permalink: /
   color: #666;
   margin-top: 8px;
 }
+
+.featured-projects {
+  margin: 50px 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.project-image {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #fff;
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.project-link {
+  display: inline-block;
+  color: #667eea;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.process-section {
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px 0;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.process-step {
+  text-align: center;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 auto 16px;
+}
+
+.step-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.contact-cta {
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 50px 30px;
+  margin: 50px 0;
+}
+
+.contact-cta h2 {
+  color: white !important;
+  margin-top: 0;
+}
+
+.contact-cta p {
+  color: white !important;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.contact-cta-btn {
+  display: inline-block;
+  background: white;
+  color: #667eea;
+  padding: 14px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.contact-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 </style>
 
 <div class="lang-switcher">
@@ -167,6 +349,20 @@ permalink: /
   <div class="hero-cta">
     <a href="/me/portfolio/" class="hero-btn hero-btn-primary">查看作品</a>
     <a href="/me/contact/" class="hero-btn hero-btn-secondary">开始合作</a>
+  </div>
+</div>
+
+## 关于我
+
+<div class="about-section">
+  <div class="about-content">
+    <div class="about-avatar">👨‍💻</div>
+    <div class="about-text">
+      <h3>你好，我是 JinXuchen2020 👋</h3>
+      <p>我是一名拥有 5 年以上开发经验的全栈工程师，专注于 Vue.js、React、Node.js 等现代技术栈。</p>
+      <p>我热爱编程，追求高质量的代码和优秀的用户体验。已完成 20 多个开源项目，擅长从需求分析到产品交付的完整开发流程。</p>
+      <p>无论是网站开发、移动应用还是后端系统，我都能为您提供专业的解决方案。</p>
+    </div>
   </div>
 </div>
 
@@ -190,6 +386,39 @@ permalink: /
       <div class="highlight-icon">⚙️</div>
       <div class="highlight-title">后端服务</div>
       <p>Node.js、RESTful API，稳定高效的后台系统</p>
+    </div>
+  </div>
+</div>
+
+## 精选项目
+
+展示我最优秀的几个开源项目，更多请查看作品集。
+
+<div class="featured-projects">
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="project-image" style="background: linear-gradient(135deg, #42b983 0%, #35495e 100%);">🖥️</div>
+      <div class="project-content">
+        <div class="project-title">ERP Online</div>
+        <div class="project-desc">Vue3 企业资源管理系统，包含采购、销售、库存、财务等完整业务流程</div>
+        <a href="https://github.com/JinXuchen2020/erp_online" target="_blank" class="project-link">查看项目 →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image" style="background: linear-gradient(135deg, #2563eb 0%, #0f172a 100%);">🛒</div>
+      <div class="project-content">
+        <div class="project-title">Signples</div>
+        <div class="project-desc">Vue.js 电商商城系统，包含商品展示、购物车、订单管理等功能</div>
+        <a href="https://github.com/JinXuchen2020/signples" target="_blank" class="project-link">查看项目 →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image" style="background: linear-gradient(135deg, #13b9f6 0%, #0553b1 100%);">💎</div>
+      <div class="project-content">
+        <div class="project-title">DAPA Zodiac Wallet</div>
+        <div class="project-desc">Flutter + Rust 跨平台数字钱包应用</div>
+        <a href="https://github.com/JinXuchen2020/dapa-zodiac-wallet" target="_blank" class="project-link">查看项目 →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -230,13 +459,51 @@ permalink: /
   </div>
 </div>
 
-## 快速导航
+## 合作流程
 
-- 👉 [查看作品](/me/portfolio/)
-- 📋 [服务介绍](/me/services/)
-- 📧 [联系我](/me/contact/)
+清晰透明的合作流程，让您放心。
+
+<div class="process-section">
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <div class="step-title">需求沟通</div>
+      <div class="step-desc">了解您的项目背景、具体需求和期望</div>
+    </div>
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <div class="step-title">方案报价</div>
+      <div class="step-desc">提供技术方案和详细的报价与时间规划</div>
+    </div>
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <div class="step-title">签订合同</div>
+      <div class="step-desc">确认方案后签订开发合同，支付预付款</div>
+    </div>
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <div class="step-title">开发交付</div>
+      <div class="step-desc">分阶段开发，及时沟通，按时交付</div>
+    </div>
+    <div class="process-step">
+      <div class="step-number">5</div>
+      <div class="step-title">验收支持</div>
+      <div class="step-desc">测试验收，部署上线，后续技术支持</div>
+    </div>
+  </div>
+</div>
+
+## 准备开始了？
+
+无论您有什么项目需求，都欢迎随时联系我。
+
+<div class="contact-cta">
+  <h2>让我们一起合作吧！</h2>
+  <p>告诉我您的项目需求，我会在 24 小时内回复您</p>
+  <a href="/me/contact/" class="contact-cta-btn">立即联系我</a>
+</div>
 
 ---
 
-> 💡 **欢迎合作！** 无论您有什么项目需求，都欢迎随时联系我。
+> 💡 **欢迎合作！** 随时可以通过 GitHub 与我联系。
 {% endraw %}
