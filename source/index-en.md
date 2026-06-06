@@ -1,34 +1,12 @@
 ---
-title: 首页
+title: Home
 layout: page
 comments: false
-permalink: /
+permalink: /en/
 ---
 
 {% raw %}
 <style>
-.lang-switcher {
-  text-align: center;
-  margin: 20px 0;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-.lang-switcher a {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.lang-switcher a:hover {
-  background: #667eea;
-  color: white;
-}
-
 .hero-section {
   text-align: center;
   padding: 60px 20px;
@@ -155,48 +133,70 @@ permalink: /
   color: #666;
   margin-top: 8px;
 }
+
+.lang-switcher {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.lang-switcher a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.lang-switcher a:hover {
+  background: #667eea;
+  color: white;
+}
 </style>
 
 <div class="lang-switcher">
-  <strong>中文</strong> · <a href="/en/">English</a>
+  <a href="/">中文</a> · <strong>English</strong>
 </div>
 
 <div class="hero-section">
-  <h1>全栈开发工程师</h1>
-  <p>专注于为企业提供高质量的软件外包服务</p>
+  <h1>Full-Stack Developer</h1>
+  <p>Specialized in providing high-quality software outsourcing services</p>
   <div class="hero-cta">
-    <a href="/me/portfolio/" class="hero-btn hero-btn-primary">查看作品</a>
-    <a href="/me/contact/" class="hero-btn hero-btn-secondary">开始合作</a>
+    <a href="/en/portfolio/" class="hero-btn hero-btn-primary">View Portfolio</a>
+    <a href="/en/contact/" class="hero-btn hero-btn-secondary">Start Collaboration</a>
   </div>
 </div>
 
-## 服务介绍
+## Services
 
-我提供以下专业技术服务，为您的项目需求提供最佳解决方案。
+I provide the following professional technical services to deliver the best solutions for your project needs.
 
 <div class="highlights">
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
     <div class="highlight-card">
       <div class="highlight-icon">🖥️</div>
-      <div class="highlight-title">Web 开发</div>
-      <p>Vue.js、React 等现代框架，打造高性能网站</p>
+      <div class="highlight-title">Web Development</div>
+      <p>Vue.js, React and other modern frameworks for high-performance websites</p>
     </div>
     <div class="highlight-card">
       <div class="highlight-icon">📱</div>
-      <div class="highlight-title">移动应用</div>
-      <p>Flutter 跨平台应用，同时支持 iOS 和 Android</p>
+      <div class="highlight-title">Mobile Apps</div>
+      <p>Flutter cross-platform apps supporting both iOS and Android</p>
     </div>
     <div class="highlight-card">
       <div class="highlight-icon">⚙️</div>
-      <div class="highlight-title">后端服务</div>
-      <p>Node.js、RESTful API，稳定高效的后台系统</p>
+      <div class="highlight-title">Backend Services</div>
+      <p>Node.js, RESTful APIs for stable and efficient backend systems</p>
     </div>
   </div>
 </div>
 
-## 技术栈
+## Tech Stack
 
-我熟练掌握以下技术，可以为您的项目提供全方位的技术支持。
+I am proficient in the following technologies to provide comprehensive technical support for your projects.
 
 <div class="tech-stack">
   <div class="tech-grid">
@@ -211,32 +211,32 @@ permalink: /
   </div>
 </div>
 
-## 项目统计
+## Project Statistics
 
-通过 GitHub 上的开源项目展示我的技术能力。
+Showcasing my technical capabilities through open source projects on GitHub.
 
 <div class="stats">
   <div class="stat-card">
     <div class="stat-number">20+</div>
-    <div class="stat-label">开源项目</div>
+    <div class="stat-label">Open Source Projects</div>
   </div>
   <div class="stat-card">
     <div class="stat-number">5+</div>
-    <div class="stat-label">开发年数</div>
+    <div class="stat-label">Years Experience</div>
   </div>
   <div class="stat-card">
     <div class="stat-number">100%</div>
-    <div class="stat-label">客户满意度</div>
+    <div class="stat-label">Client Satisfaction</div>
   </div>
 </div>
 
-## 快速导航
+## Quick Navigation
 
-- 👉 [查看作品](/me/portfolio/)
-- 📋 [服务介绍](/me/services/)
-- 📧 [联系我](/me/contact/)
+- 👉 [View Portfolio](/en/portfolio/)
+- 📋 [Services](/en/services/)
+- 📧 [Contact Me](/en/contact/)
 
 ---
 
-> 💡 **欢迎合作！** 无论您有什么项目需求，都欢迎随时联系我。
+> 💡 **Welcome to Collaborate!** Feel free to contact me for any project requirements.
 {% endraw %}
