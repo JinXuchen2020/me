@@ -1,56 +1,81 @@
 name: Deploy site to GitHub Pages
 
-# 触发器、分支
+# 触发条件
 on:
   push:
     branches:
-      - master  # default branch
+      - master  # 默认分支
+  workflow_dispatch:  # 允许手动触发
+
+# 权限设置
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 并发控制，同时只能有一个 workflow 运行
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  # 子任务
+  # 构建和部署任务
   build-and-deploy:
-    runs-on: ubuntu-latest # 定运行所需要的虚拟机环境
-    permissions:
-      contents: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - uses: actions/checkout@v2
-        # with:
-        #   submodules: true
-        #   fetch-depth: 0
-      # 每个name表示一个步骤:step
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v2
+      # 1. 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: '18.18.0' # 自己正在使用的node版本即可
-      # - run: node -v # 查看node版本号
-      # 缓存依赖项: https://docs.github.com/cn/actions/using-workflows/caching-dependencies-to-speed-up-workflows
-      - name: Cache NPM dependencies
-        uses: actions/cache@v2
+          fetch-depth: 0  # 完整的历史记录，用于主题 submodule
+
+      # 2. 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          # path: node_modules
-          key: ${{ runner.OS }}-npm-cache
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      # 查看路径 : /home/runner/work/blog/blog
-      # - name: Look Path
-      #   run: pwd
-      # 查看文件
-      - name: Look Dir List
+          node-version: '18'
+          cache: 'npm'
+
+      # 3. 安装依赖
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. 查看目录结构（调试用）
+      - name: Show directory structure
         run: tree -L 3 -a
-      # 第一次或者依赖发生变化的时候执行 Install Dependencies，其它构建的时候不需要这一步
-      - name: Install Dependencies
-        run: npm install
-      - name: Look Dir List
-        run: tree -L 3 -a      
-      - name: Clean
+
+      # 5. 清理构建目录
+      - name: Clean previous build
         run: npm run clean
-      - name: Build
+
+      # 6. 生成静态网站
+      - name: Build website
         run: npm run build
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: gh-pages
-          build_dir: public
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_ENV: production
+
+      # 7. 查看构建结果
+      - name: Verify build output
+        run: |
+          echo "Build completed!"
+          ls -la public/
+          echo "Total files: $(find public -type f | wc -l)"
+
+      # 8. 配置 GitHub Pages
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      # 9. 上传构建产物
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+      # 10. 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
